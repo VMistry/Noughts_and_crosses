@@ -42,11 +42,12 @@ h2 {
 }
 
 .circle2 {
+  background-image:url('../X_symbol.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0 auto;
-  border-radius: 100%;
   height: 74px;
   width: 75px;
   margin-top: 18px;
-  border:solid 4px blue;
   background-color: white;
 }
