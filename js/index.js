@@ -9,15 +9,20 @@ divSquare.on('click', function(){
   //This targets the div inside of the selected div.
   var divInnerSquare = $('.innerSquare', this);
   //If it is player ones turn, do this.
-  if(turnCount == 1){
-    event.stopPropagation();
-    divInnerSquare.addClass('circle');
-    turnCount = 2;
+  if(!(divInnerSquare.hasClass('circle') || divInnerSquare.hasClass('circle2'))){
+    if(turnCount == 1){
+      event.stopPropagation();
+      divInnerSquare.addClass('circle');
+      turnCount = 2;
+    }
+    //If it is player twos turn, do this.
+    else{
+      event.stopPropagation();
+      divInnerSquare.addClass('circle2');
+      turnCount = 1;
+    }
   }
-  //If it is player twos turn, do this.
   else{
-    event.stopPropagation();
-    divInnerSquare.addClass('circle2');
-    turnCount = 1;
+    
   }
 })
