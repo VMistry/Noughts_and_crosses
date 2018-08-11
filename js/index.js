@@ -6,7 +6,9 @@ var turnCount = 1;
 var positionArray = [0,0,0,0,0,0,0,0,0];
 
 //This click event will find whihc div has been clicked and edit the inner divs to a O or an X.
-divSquare.on('click', function(){
+divSquare.on('click', clickAction);
+//This is the function, activated when clicked on the board.
+function clickAction(){
   //This targets the div inside of the selected div.
   var divInnerSquare = $('.innerSquare', this);
   //If the space is not occupied, do this.
@@ -36,7 +38,8 @@ divSquare.on('click', function(){
   else{
     $('#updatingTXT').text(turnCount + "'s turn (Square already selected)");
   }
-})
+}
+
 
 //function to change 0 to a number.
 function addToArray(idTag){
@@ -113,7 +116,8 @@ function checker(number){
     //Print out who's won the game.
     $('#updatingTXT').text(number + " wins");
     //Make buttons unclickable
-    $('.square').unbind("click");
+    divSquare.off('click');
+    $('#reset').on('click', resetButton)
   }
   //If the game is not over, do this.
   else{
@@ -121,4 +125,15 @@ function checker(number){
     $('#updatingTXT').text(turnCount + "'s turn");
   }
 
+}
+//This is to reset the game.
+function resetButton(){
+  divSquare.on('click', clickAction);
+  var divInnerSquare = $('.innerSquare', '.square');
+  divInnerSquare.removeClass('circle');
+  divInnerSquare.removeClass('circle2');
+  positionArray = [0,0,0,0,0,0,0,0,0];
+  turnCount = 1;
+  $('#updatingTXT').text(turnCount + "'s turn");
+  $('#reset').off('click')
 }
