@@ -50,9 +50,9 @@ divSquare.on('click', function(){
       divInnerSquare.addClass('circle2');
       turnCount = 1;
     }
+    $('#updatingTXT').text(turnCount + "'s turn");
   }
   else{
-
+    $('#updatingTXT').text(turnCount + "'s turn (Square already selected)");
   }
-
 })
