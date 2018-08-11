@@ -10,6 +10,35 @@ divSquare.on('click', function(){
   var divInnerSquare = $('.innerSquare', this);
   //If it is player ones turn, do this.
   if(!(divInnerSquare.hasClass('circle') || divInnerSquare.hasClass('circle2'))){
+    switch(this.id){
+      case "square1":
+        positionArray[0] = turnCount;
+        break;
+      case "square2":
+        positionArray[1] = turnCount;
+        break;
+      case "square3":
+        positionArray[2] = turnCount;
+        break;
+      case "square4":
+        positionArray[3] = turnCount;
+        break;
+      case "square5":
+        positionArray[4] = turnCount;
+        break;
+      case "square6":
+        positionArray[5] = turnCount;
+        break;
+      case "square7":
+        positionArray[6] = turnCount;
+        break;
+      case "square8":
+        positionArray[7] = turnCount;
+        break;
+      case "square9":
+        positionArray[8] = turnCount;
+        break;
+    }
     if(turnCount == 1){
       event.stopPropagation();
       divInnerSquare.addClass('circle');
@@ -23,6 +52,7 @@ divSquare.on('click', function(){
     }
   }
   else{
-    
+
   }
+
 })
