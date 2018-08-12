@@ -1,7 +1,8 @@
 # TicTacToe
+___
 The aim of this project was to create a tic tac TicTacToe, also known as Noughts and Crosses, using the knowledge gained in week 3 of Sparta training. To create the game, we had to use jQuery, HTML and CSS to create it:  
 
-
+## Aim
 To Achieve the goal of the TicTacToe game, we had to:
 - [x] Should allow two players to play
 - [x] It should recognises a draw and a win state.
