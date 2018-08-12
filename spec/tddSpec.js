@@ -1,130 +1,74 @@
-describe("Intro to do TDD in javaScript", function(){
+describe("TDD test for Noughts and Crosses", function(){
 
-  var calculator = require("../lib/Test_TDD");
-  //function 1
-  it("should access the basic string", function(){
-    expect(calculator.choice("b")).toEqual("basic");
-  })
+  var gameCheck = require("../lib/Test_TDD");
 
-  it("should access the basic string", function(){
-    expect(calculator.choice("basic calculator")).toEqual("basic");
+  //Function 1 - Checking all states
+  it("Should add 1 to the first element of the array", function(){
+    expect(gameCheck.addToArray("square1")).toEqual([1,0,0,0,0,0,0,0]);
   })
 
-  it("should access the basic long string", function(){
-    expect(calculator.choice("bl")).toEqual("basicLong");
+  it("Should add 1 to the second element of the array", function(){
+    expect(gameCheck.addToArray("square2")).toEqual([0,1,0,0,0,0,0,0]);
   })
 
-  it("should access the basic long string", function(){
-    expect(calculator.choice("basic Long calculator")).toEqual("basicLong");
+  it("Should add 1 to the third element of the array", function(){
+    expect(gameCheck.addToArray("square3")).toEqual([0,0,1,0,0,0,0,0]);
   })
 
-  it("should access the advanced string", function(){
-    expect(calculator.choice("a")).toEqual("Advanced");
+  it("Should add 1 to the fourth element of the array", function(){
+    expect(gameCheck.addToArray("square4")).toEqual([0,0,0,1,0,0,0,0]);
   })
 
-  it("should access the advanced string", function(){
-    expect(calculator.choice("advanced calculator")).toEqual("Advanced");
+  it("Should add 1 to the fifth element of the array", function(){
+    expect(gameCheck.addToArray("square5")).toEqual([0,0,0,0,1,0,0,0]);
   })
 
-  it("should access the BMI string", function(){
-    expect(calculator.choice("bmi")).toEqual("BMI");
+  it("Should add 1 to the sixth element of the array", function(){
+    expect(gameCheck.addToArray("square6")).toEqual([0,0,0,0,0,1,0,0]);
   })
 
-  it("should access the BMI string", function(){
-    expect(calculator.choice("bmi calculator")).toEqual("BMI");
+  it("Should add 1 to the seventh element of the array", function(){
+    expect(gameCheck.addToArray("square7")).toEqual([0,0,0,0,0,0,1,0]);
   })
 
-  it("should access the Trip_calculator string", function(){
-    expect(calculator.choice("t")).toEqual("Trip_calculator");
+  it("Should add 1 to the eighth element of the array", function(){
+    expect(gameCheck.addToArray("square8")).toEqual([0,0,0,0,0,0,0,1]);
   })
 
-  it("should access the Trip_calculator string", function(){
-    expect(calculator.choice("trip calculator")).toEqual("Trip_calculator");
+  //Function 2
+  it("Should detect row wins and return true", function(){
+    expect(gameCheck.checker(1, [1,1,1,0,2,2,0,0,0])).toEqual(true);
   })
 
-  it("should access the error string", function(){
-    expect(calculator.choice("g")).toEqual("error");
+  it("Should detect column wins and return true", function(){
+    expect(gameCheck.checker(1, [0,2,1,0,2,1,0,0,1])).toEqual(true);
   })
 
-  //function 2
-  it("should add two numbers together", function(){
-    expect(calculator.operationSelector(10, "+", 5)).toEqual(15);
+  it("Should detect diagonal wins and return true", function(){
+    expect(gameCheck.checker(1, [1,2,0,0,1,2,0,0,1])).toEqual(true);
   })
 
-  it("should minus two numbers together", function(){
-    expect(calculator.operationSelector(10, "-", 5)).toEqual(5);
+  it("Should detect diagonal wins and return true", function(){
+    expect(gameCheck.checker(1, [0,2,1,0,1,2,1,0,0])).toEqual(true);
   })
 
-  it("should multiple two numbers together", function(){
-    expect(calculator.operationSelector(10, "*", 5)).toEqual(50);
+  it("Should work for player two and return true", function(){
+    expect(gameCheck.checker(2, [2,2,2,1,1,0,1,0,0])).toEqual(true);
   })
 
-  it("should divide two numbers together", function(){
-    expect(calculator.operationSelector(10, "/", 5)).toEqual(2);
-  })
-  //function 3
-  it("should return the string squareRoot", function(){
-    expect(calculator.SorP("sr")).toEqual("squareRoot");
+  it("Game is still being played", function(){
+    expect(gameCheck.checker(1, [0,2,0,0,1,2,1,0,0])).toEqual(false);
   })
 
-  it("should return the string squareRoot", function(){
-    expect(calculator.SorP("square root")).toEqual("squareRoot");
+  //Function 3
+  it("Should give out false, for the array still contains 0", function(){
+    expect(gameCheck.drawChecker([0,2,0,0,1,2,1,0,0])).toEqual(false);
   })
 
-  it("should return the string power", function(){
-    expect(calculator.SorP("p")).toEqual("power");
+  it("Should give out false, for the array still contains 0", function(){
+    expect(gameCheck.drawChecker([1,2,2,1,1,2,1,2,1])).toEqual(true);
   })
 
-  it("should return the string power", function(){
-    expect(calculator.SorP("power")).toEqual("power");
-  })
-
-  it("should return the string Error.", function(){
-    expect(calculator.SorP("d")).toEqual("Error.");
-  })
-
-  //function 4
-  it("should squareRoot a number", function(){
-    expect(calculator.squareRoot(9)).toEqual(3);
-  })
-  //function 5
-  it("should do a number by the power of the number", function(){
-    expect(calculator.power(9, 2)).toEqual(81);
-  })
-  //function 6
-  it("should return the string metric", function(){
-    expect(calculator.MorI("m")).toEqual("metric");
-  })
-
-  it("should return the string metric", function(){
-    expect(calculator.MorI("metric")).toEqual("metric");
-  })
-
-  it("should return the string imperial", function(){
-    expect(calculator.MorI("i")).toEqual("imperial");
-  })
-
-  it("should return the string imperial", function(){
-    expect(calculator.MorI("imperial")).toEqual("imperial");
-  })
-
-  //*//
-  //function 7
-  it("should return the correct BMI in metrics", function(){
-    expect(calculator.metricBMI(70, 1.75)).toEqual(22.9);
-  })
-  //fucntion 8
-  it("should return the correct BMI in imperial", function(){
-    expect(calculator.imperialBMI(150, 64)).toEqual(25.7);
-  })
-  //function 9
-  it("should return the correct trip cost", function(){
-    expect(calculator.Trip_cost(815, 9, 1.50)).toEqual(110);
-  })
-  //function 10
-  it("should return the correct length of time to get from a to b", function(){
-    expect(calculator.Trip_time(200, 20)).toEqual(10);
-  })
 
 })
 //1)split code in to two files.
