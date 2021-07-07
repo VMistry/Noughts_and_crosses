@@ -1,21 +1,16 @@
-# JavaScript - DOM Manipulation lab
+# TicTacToe
+___
+The aim of this project was to create a tic tac TicTacToe, also known as Noughts and Crosses, using the knowledge gained in week 3 of Sparta training. To create the game, we had to use jQuery, HTML and CSS to create it:  
 
-## Timings
+## Aim
+To Achieve the goal of the TicTacToe game, we had to:
+- [x] Should allow two players to play
+- [x] It should recognises a draw and a win state.
+- [x] It should display the current state of the game (Who's turn it is).
+- [x] Will include a reset button to restart the game.
 
-30 - 45 Minutes
-
-## Summary
-
-You've been given some HTML and CSS that makes up a blank die, with 9 sections for where each dot would be. It's up to you to use JavaScript to manipulate the DOM and make it so that you can roll the die and have it look like a real dice roll between 1 and 6.
-
-## Tasks
-
-* Write a function that will roll the die. This means you'll have to:
-  * Get a random number between 1 and 6.
-  * Query the DOM and get each section of the die face.
-  * Manipulate those elements so that they will or won't show a black dot depending on the random number.
-  * For example, if you were to roll a 1, there should only be one black dot in the middle of the die.
-
-**HINTS**
-
- - Check the CSS file - all the styling you need to add to the page is already there. How are you going to add that style to the page correctly?
+## Bonus
+- [x] Carry out testing for functions using Jasmine.
+- [x] Add and remove classes using jQuery
+- [x] Freeze the game when there is a win, lose or draw.
+- [x] Identify id's using classes, when a person clicks button.
